@@ -1,19 +1,28 @@
 /*CSS*/
-
-*{
-	margin: 0px;
-	padding: 0px;
-}
-
-#menu{
-
+.nav
+{
+	display: flex;
+	flex-direction: row;
 	width: 100%;
-	height: auto;
-	padding: 10px;
-	background-color: #aaa;
-	-webkit-box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
-	-moz-box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
-	box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
-	margin-bottom: 20px;
-
+	height: 55px;
+	background-color: #0091EA;
+}
+.nav > div:first-child
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 10%;
+	height: 100%;
+	/*background-color: orange;*/
+}
+.nav > div:last-child
+{
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 100%;
+	/*background-color: red;*/
 }

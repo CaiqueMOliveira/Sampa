@@ -1,0 +1,9 @@
+@import "../fonts/iconfont/material-icons.css";
+
+@font-face
+{
+	font-family: ubuntu;
+	src: url(../fonts/ubuntu/Ubuntu-Regular.ttf);
+}
+
+*{font-size: 1em;}

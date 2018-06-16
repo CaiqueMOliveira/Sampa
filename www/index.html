@@ -1,50 +1,29 @@
+<!DOCTYPE html>
 <hmtl>
 	<head>
 		<meta name="viewport" content="width=device-width, user-scalable=1">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/materialize.css">
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/materialize.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/padroes.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<meta charset="utf-8">
+		<script src="cordova.js"></script>
+	  	<script src="js/jquery.min.js"></script>
+	  	<script src="js/component.js"></script>
 		<title>Home</title>
 	</head>
 	<body>
 		<!-- Nav -->
-		<div id="menu">
-			<a href="#" data-activates="slide-out" id="btn_menu" class="waves-effect waves-light btn">
-			<i class="material-icons">&equiv;</i>
-			<a>
-		</div>
-		<!--Menu-->
-		<ul id="slide-out" class="side-nav">
-	    <li><a href="#!"><i class="material-icons">Home</a></li>
-	    <li><a href="#!">Gastos Gerais</a></li>
-	    <li><a href="#!">Gastos Por Item</a></li>
-	    <li><div class="divider"></div></li>
-	    <li><a class="subheader">Extra</a></li>
-	    <li><a class="waves-effect" href="#!">Sobre nós</a></li>
-	  	</ul>
-	  	<!-- Area de Cards -->
-	  	<div class="row">
-	        <div class="col s12 m7">
-	          <div class="card">
-	            <div class="card-image">
-	              <img src="imagens/fundo.jpg">
-	              <span class="card-title">Fulano de Souza</span>
-	            </div>
-	            <div class="card-content">
-	              <p>Card sobre um determinado Vereador.</p>
-	            </div>
-	            <div class="card-action">
-	              <a href="#">Ver detalhes</a>
-	            </div>
-	          </div>
-	        </div>
-      	</div>
-		<script type="text/javascript">
+		<nav class="nav">
+		    <div>
+		    	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		    <div>Sou Cidadão</div>
+		</nav>
 
-			  $("#btn_menu").sideNav(); //Botão de menu
+		<div class="nav-menu"></div>
 
-		</script>
+	  <script src="js/materialize.js"></script>
+
 	</body>
 </hmtl>
