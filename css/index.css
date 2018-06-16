@@ -1,0 +1,16 @@
+/*CSS*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#menu{
+	width: 100%;
+	height: auto;
+	padding: 20px;
+	background-color: #aaa;
+	-webkit-box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
+	-moz-box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
+	box-shadow: 0px 2px 5px 3px rgba(0,0,0,0.21);
+}
