@@ -7,3 +7,32 @@
 }
 
 *{font-size: 1em;}
+
+/*Menu de navegação*/
+.nav
+{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 55px;
+	background-color: #0091EA;
+}
+.nav > div:first-child
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 10%;
+	height: 100%;
+	/*background-color: orange;*/
+}
+.nav > div:last-child
+{
+	font-size: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 100%;
+	/*background-color: red;*/
+}
