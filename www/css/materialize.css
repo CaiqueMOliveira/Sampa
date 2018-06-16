@@ -3027,6 +3027,7 @@ td, th {
   border-radius: 2px;
   overflow: hidden;
   position: relative;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .collection .collection-item {
@@ -3093,7 +3094,7 @@ td, th {
   display: block;
   -webkit-transition: .25s;
   transition: .25s;
-  color: #26a69a;
+  color: #000;
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -3311,10 +3312,10 @@ span.badge {
   padding: 0 6px;
   margin-left: 14px;
   text-align: center;
-  font-size: 1rem;
+  font-size: 2rem;
   line-height: 22px;
   height: 22px;
-  color: #757575;
+  color: #000;
   float: right;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -4464,7 +4465,7 @@ html {
 
 @media only screen and (min-width: 0) {
   html {
-    font-size: 14px;
+    font-size: 20px;
   }
 }
 
