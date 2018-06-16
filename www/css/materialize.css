@@ -3312,7 +3312,7 @@ span.badge {
   padding: 0 6px;
   margin-left: 14px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 28px;
   line-height: 22px;
   height: 22px;
   color: #000;
@@ -4465,7 +4465,7 @@ html {
 
 @media only screen and (min-width: 0) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
