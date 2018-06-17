@@ -8,5 +8,4 @@ class Gasto
 	{
 		new GastoDAO().getGastosPessoais(callbacksuccess, callbackfail); 
 	}
-
 }

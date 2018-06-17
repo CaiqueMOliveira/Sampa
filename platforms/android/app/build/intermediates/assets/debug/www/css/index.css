@@ -1,1 +1,12 @@
-/*CSS*/
+.titulo-pagina
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+}
+.titulo-pagina > h1
+{
+	font-family: ubuntu;
+	color: rgba(0,0,0,.5);
+	font-size: 1rem;
+}

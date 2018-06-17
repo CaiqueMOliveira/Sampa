@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<hmtl>
+	<head>
+		<meta name="viewport" content="width=device-width, user-scalable=1">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/materialize.css">
+		<link rel="stylesheet" type="text/css" href="css/padroes.css">
+		<link rel="stylesheet" type="text/css" href="css/filtros.css">
+		<meta charset="utf-8">
+		<script src="cordova.js"></script>
+	  	<script src="js/jquery.min.js"></script>
+	  	<script src="js/vue.js"></script>
+	  	<script src="js/controller/Database.js"></script>
+		<title>Home</title>
+	</head>
+	<body>
+		<!-- Nav -->
+		<nav class="nav">
+		    <div>
+		    	<a href="index.html" data-activates="slide-out" class="button-collapse"><i class="material-icons">arrow_back</i></a>
+			</div>
+		    <div>Tipos de Despesas</div>
+		</nav>
+
+		<div class="row ubuntu">
+		 <div class="input-field col s12">
+		    <select name="cbxCategoriaGasto">
+		      <option value="" disabled selected>Categoria do gasto</option>
+		      <option value="ASSINATURA DE JORNAIS E REVISTAS">ASSINATURA DE JORNAIS E REVISTAS</option>
+		      <option value="COMBUSTIVEL">COMBUSTIVEL</option>
+		      <option value="COMPOSIÇÃO/ARTE/DIAGRAMAÇÃO/PRODUÇÃO/IMPRESSAO GRAFICA">COMPOSIÇÃO/ARTE/DIAGRAMAÇÃO/PRODUÇÃO/IMPRESSAO GRAFICA</option>
+		      <option value="COMPOSIÇÃO/ARTE/DIAGRAMAÇÃO/PRODUÇÃO/IMPRESSAO GRAFICA">COMPOSIÇÃO/ARTE/DIAGRAMAÇÃO/PRODUÇÃO/IMPRESSAO GRAFICA</option>
+		      <option value="CONTRATAÇAO DE PESSOA JURIDICA">CONTRATAÇAO DE PESSOA JURIDICA</option>
+		      <option value="CORREIOS">CORREIOS</option>
+		      <option value="ELABORAÇÃO/MANUTENÇAO DE SITE/HOSPEDAGEM">ELABORAÇÃO/MANUTENÇAO DE SITE/HOSPEDAGEM</option>
+		      <option value="EVENTOS/SEMINARIOS">EVENTOS/SEMINARIOS</option>
+		      <option value="INTERMEDIADO - CORREIOS">INTERMEDIADO - CORREIOS</option>
+		      <option value="INTERMEDIADO - LOCAÇÃO DE VEÍCULOS">INTERMEDIADO - LOCAÇÃO DE VEÍCULOS</option>
+		      <option value="INTERMEDIADO - REPROGRAFIA (XEROX/ENCADERNAÇÃO)">INTERMEDIADO - REPROGRAFIA (XEROX/ENCADERNAÇÃO)</option>
+		      <option value="LIVROS">LIVROS</option>
+		      <option value="LOCAÇÃO DE MOVEIS E EQUIPAMENTOS">LOCAÇÃO DE MOVEIS E EQUIPAMENTOS</option>
+		      <option value="LOCAÇÃO DE VEÍCULOS">LOCAÇÃO DE VEÍCULOS</option>
+		      <option value="MATERIAL DE ESCRITORIO E OUTROS MATERIAIS DE CONSUMO">MATERIAL DE ESCRITORIO E OUTROS MATERIAIS DE CONSUMO</option>
+		      <option value="PROVEDOR DE INTERNET">PROVEDOR DE INTERNET</option>
+		      <option value="REPROGRAFIA (XEROX/ENCADERNAÇÃO)">REPROGRAFIA (XEROX/ENCADERNAÇÃO)</option>
+		      <option value="TELEFONE FIXO">TELEFONE FIXO</option>
+		      <option value="TELEFONE MOVEL">TELEFONE MOVEL</option>
+		    </select>
+		    <!-- <label>Materialize Select</label> -->
+		  </div>
+		</div>
+
+			  
+	  <script src="js/component.js"></script>
+	  <script src="js/materialize.js"></script>
+	  <script src="js/routes.js"></script>
+	  <script src="js/controller/Gasto.js"></script>
+	  <script src="js/model/GastoDAO.js"></script>
+	  <script src="js/controller/Data.js"></script>
+	  <script>
+	  	// Inicializa o select do Materialize
+		$('select').material_select();
+
+		Gasto.getGastosEspecificosPessoais(
+			new Date().getMonth(),
+			Data.getAnoAtual(),
+			'TELEFONE FIXO',
+			function(resp)
+			{
+				console.log(resp);
+			}, 
+			function()
+			{
+
+			}
+		);
+	  </script>
+	</body>
+</hmtl>
