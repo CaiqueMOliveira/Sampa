@@ -11,6 +11,15 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="cordova.js"></script>
 	  <script src="js/jquery.min.js"></script>
+    <!-- <script type="text/javascript">
+      var Percentual = $(".percentual");
+      var Valor = $("#valor").text();
+      if(Valor < 1000){
+        Percentual.css("background-color:black");
+      }else{
+        Percentual.css("background-color:red");
+      }
+    </script> -->
   </head>
   <body>
     <!-- Nav -->
@@ -23,9 +32,6 @@
 
 		<div class="nav_menu"></div>
 
-	  <script src="js/component.js"></script>
-	  <script src="js/materialize.js"></script>
-
   <div class="main">
     <div class="texto">Correio</div>
     <div class="collection">
@@ -33,7 +39,7 @@
         <span class="badge">1°</span>
         Bruna Sousa<br>
         <div class="percentual"></div>
-        R$ 600.000,00
+        <div id="valor">6000</div>
       </a>
     </div>
 
@@ -42,7 +48,7 @@
         <span class="badge">2°</span>
         Bruna Sousa<br>
         <div class="percentual"></div>
-        R$ 600.000,00
+        <div id="valor">900</div>
       </a>
     </div>
 
@@ -51,10 +57,13 @@
         <span class="badge">3°</span>
         Bruna Sousa<br>
         <div class="percentual"></div>
-        R$ 600.000,00
+        <div id="valor">500</div>
       </a>
     </div>
   </div>
+
+  <script src="js/component.js"></script>
+  <script src="js/materialize.js"></script>
 
   </body>
 </html>
