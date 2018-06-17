@@ -68,7 +68,6 @@
   <script src="js/model/GastoDAO.js"></script>
   <script src="js/controller/Data.js"></script>
   <script src="js/routes.js"></script>
-  <script src="js/jquery.mask.min.js"></script>
   <script>
     Gasto.getGastosPessoais(
         new Date().getMonth(),
@@ -77,15 +76,8 @@
         {
           console.log(resp);
 
-          let index = resp.length / 2;
-
-          while( media < resp[index].gasto_total )
-          {
-            index -= 1;
-          }
-
-          let vereador = resp[index].vereador;
-          let gastoTotal = resp[index].gasto_total;
+          let vereador = resp[(resp.length/2)].vereador;
+          let gastoTotal = resp[(resp.length/2)].gasto_total;
 
           $('.card-dinamicos').append(
             `<div class="row">
@@ -94,14 +86,18 @@
                 <div class="card-image card-menor">
                   <div class="preto-fosco"></div>
                   <img src="">
+<<<<<<< HEAD
                   <a class="btn-floating halfway-fab waves-effect waves-light red" href="comentarioUsuario.html"><i class="material-icons">comment</i></a>
+=======
+                  <a href="comentarioUsuario.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+>>>>>>> e6d3d7bb214f5e215be8d2468cb6f01e5285a0e6
                 </div>
                 <div class="card-content menor-gasto">
                   <span class="card-title">${vereador}</span>
                   <p>Parabenizamos o vereador(a) por ter o gasto consciente com o nosto dinheiro.</p>
                   <div class="divider"></div>
                   <div class="apenas-alinha menor">
-                    <p id="valor-menor">R$ ${Number.parseFloat(gastoTotal).toFixed(2)}</p>
+                    <p>R$ ${Number.parseFloat(gastoTotal).toFixed(2)}</p>
                     <p>${Data.parseMes(new Date().getMonth())}</p>
                   </div>
                 </div>
