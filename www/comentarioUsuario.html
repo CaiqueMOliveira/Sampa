@@ -19,36 +19,55 @@
 		    <div>
 		    	<a href="index.html" data-activates="slide-out" class="button-collapse"><i class="material-icons">arrow_back</i></a>
 			</div>
-		    <div>Tipos de Despesas</div>
+		    <div>Opinião Pública</div>
 		</nav>
-    <div class="titulo">Tininha</div>
 
-    <div class="chat">
-      <div class="caixa_chat">
-        <div class="texto">ooi</div>
-        <span class="horario">22:00</span>
-      </div>
+		<form id="frm" action="comentarioUsuario.html" method="POST">
+			<div class="container-msg">
+			</div>
 
-      <div class="caixa_chat">
-        <div class="texto">ooi</div>
-        <span class="horario">22:00</span>
-      </div>
-    </div>
+			<div class="snackbar">
+				<div class="radius">
+					<input type="text" id="txtMsg" required placeholder="Digite sua opinião..." name="btnEnviar" value="">
+				</div>
+				<div class="botao-acao">
+					<label for="btnEnviar">
+						<i class="material-icons">
+							send
+						</i>
+					</label>
+					<div class="hidden">
+						<input id="btnEnviar" type="submit" name="btnEnviar" value="">
+					</div>
+				</div>
+			</div>
+		</form>
 
-    <div class="pergunta">
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s10">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
-            <i class="material-icons verdinho">check_circle</i>
-          </div>
-        </form>
-      </div>
-</div>
+   
 	  <script src="js/component.js"></script>
 	  <script src="js/materialize.js"></script>
+	  <script src="js/controller/Hora.js"></script>
+	  <script src="js/utils.js"></script>
+	  <script>
+
+	  	setInterval(function(){
+	  		$(".container-msg").append(
+	  			`<div class="msg-interator">${answersChat[Math.floor(Math.random()*answersChat.length)]}</div>`
+	  		);
+	  	},10000);
+
+	  	$("#frm").submit(function(e){
+	  		e.preventDefault();
+	  		console.log('iii');
+	  		$(".container-msg").append(
+	  			`<div class="msg-cidadao">
+			        ${$('#txtMsg').val()}
+			     </div>`
+	  		);
+
+	  		$('#txtMsg').val('');
+
+	  	});
+	  </script>
 	</body>
 </hmtl>
