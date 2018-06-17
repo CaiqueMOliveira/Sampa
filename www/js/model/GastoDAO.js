@@ -68,6 +68,7 @@ class GastoDAO
 						result.push( resp[i] );
 					}
 				}
+				
 
 				totalMedia = totalMedia / cont ; //Calcula a média
 				
