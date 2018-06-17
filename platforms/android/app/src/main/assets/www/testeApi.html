@@ -12,13 +12,16 @@
 	<script src="js/model/GastoDAO.js"></script>
 
 	<script>
-		Gasto.getGastosPessoais(
-			(resp)=>
+		Gasto. getGastosEspecificosPessoais(
+			"5", "2018","TELEFONE FIXO",
+			(resp , media)=>
 			{
-
+				console.log( resp );
+				console.log( media );
 			}, 
 			(error)=>
 			{
+				
 
 			}
 		);

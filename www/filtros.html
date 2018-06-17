@@ -69,27 +69,16 @@
 	  	// Inicializa o select do Materialize
 		$('select').material_select();
 
-		var media = 0;
-
-		Gasto.getGastosTotais(
-			new Date().getMonth(),
-			Data.getAnoAtual(),
-			function(respTwo)
-			{
-				media = respTwo;
-			},
-			function()
-			{
-
-			}
-		);
-
 		$('select[name="cbxCategoriaGasto"]').change(function(){
+
+			$('.dados-dinamicos').html("");
+
+
 			Gasto.getGastosEspecificosPessoais(
 				new Date().getMonth(),
 				Data.getAnoAtual(),
 				$('select[name="cbxCategoriaGasto"]').find(":selected").val(),
-				function(resp)
+				function(resp , media)
 				{
 					console.log(resp);
 					console.log(media);
@@ -98,7 +87,7 @@
 					{
 						let vereador = resp[i].vereador;
 						let gastoTotal = resp[i].gasto_total;
-						let maiorMenor = gastoTotal > 5000 ? "maior" : "menor";
+						let maiorMenor = gastoTotal > media ? "maior" : "menor";
 
 						$('.dados-dinamicos').append(
 							`<div class="row">

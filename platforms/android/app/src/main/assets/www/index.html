@@ -5,11 +5,13 @@
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/materialize.css">
 		<link rel="stylesheet" type="text/css" href="css/padroes.css">
-		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="css/gastos_gerais.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<meta charset="utf-8">
 		<script src="cordova.js"></script>
 	  	<script src="js/jquery.min.js"></script>
 	  	<script src="js/vue.js"></script>
+	  	<script src="js/controller/Database.js"></script>
 		<title>Home</title>
 	</head>
 	<body>
@@ -29,7 +31,6 @@
 			</div>
 		</div>
 
-
 		<!-- <div id="dados">
 			<h1 v-for="(vereador, index) in vereadores">
 				{{vereador.VEREADOR}}
@@ -42,15 +43,22 @@
 	  <script src="js/routes.js"></script>
 	  <script src="js/controller/Gasto.js"></script>
 	  <script src="js/model/GastoDAO.js"></script>
+	  <script src="js/controller/Data.js"></script>
 	  <script>
 
+	  	// Cria uma instancia do banco de dados
+	  	// new Database();
+
 	  	Gasto.getGastosPessoais(
+	  		new Date().getMonth(), 
+	  		Data.getAnoAtual(), 
 	  		function(resp)
 	  		{
 	  			console.log(resp);
-	  		},
-	  		function(error)
+	  		}, 
+	  		function()
 	  		{
+
 	  		}
 	  	);
 
