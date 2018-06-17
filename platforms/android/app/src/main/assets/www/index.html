@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<hmtl>
-	<head>
-		<meta name="viewport" content="width=device-width, user-scalable=1">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css">
-		<link rel="stylesheet" type="text/css" href="css/materialize.css">
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=1">
+    <meta charset="utf-8">
+    <title>Gastos Mensais</title>
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" type="text/css" href="css/padroes.css">
-		<link rel="stylesheet" type="text/css" href="css/gastos_gerais.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<meta charset="utf-8">
-		<script src="cordova.js"></script>
-	  	<script src="js/jquery.min.js"></script>
-	  	<script src="js/vue.js"></script>
-	  	<script src="js/controller/Database.js"></script>
-		<title>Home</title>
-	</head>
-	<body>
-		<!-- Nav -->
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="cordova.js"></script>
+	  <script src="js/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Nav -->
 		<nav class="nav">
 		    <div>
 		    	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -23,57 +20,113 @@
 		    <div>Sou Cidadão</div>
 		</nav>
 
+    <div class="jean-gray"></div>
+
 		<div class="nav_menu"></div>
 
-		<div class="row ubuntu">
-			<div class="col s12 titulo-pagina">
-				<h1>Gastos dos Vereadores</h1>
-			</div>
-		</div>
+    <div class="card-dinamicos"></div>
 
-		<!-- <div id="dados">
-			<h1 v-for="(vereador, index) in vereadores">
-				{{vereador.VEREADOR}}
-			</h1>
-		</div> -->
+     <!-- <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image card-menor">
+              <div class="preto-fosco"></div>
+              <img src="">
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+            </div>
+            <div class="card-content menor-gasto">
+              <span class="card-title">Bruna Sousa</span>
+              <p>Parabenizamos o vereador(a) por ter o gasto consciente com o nosto dinheiro.</p>
+              <div class="divider"></div>
+              <p>R$ 4789,87</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
-			  
-	  <script src="js/component.js"></script>
-	  <script src="js/materialize.js"></script>
-	  <script src="js/routes.js"></script>
-	  <script src="js/controller/Gasto.js"></script>
-	  <script src="js/model/GastoDAO.js"></script>
-	  <script src="js/controller/Data.js"></script>
-	  <script>
+      <!-- <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image card-maior">
+              <div class="preto-fosco"></div>
+              <img src="">
+              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+            </div>
+            <div class="card-content maior-gasto">
+              <span class="card-title">Bruna Sousa</span>
+              <p>Esperamos que o vereador(a) faça uso do nosso dinheiro de forma mais consciente.</p>
+              <div class="divider"></div>
+              <p>R$ 54849,87</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
 
-	  	// Cria uma instancia do banco de dados
-	  	// new Database();
+  <script src="js/component.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/controller/Gasto.js"></script>
+  <script src="js/model/GastoDAO.js"></script>
+  <script src="js/controller/Data.js"></script>
+  <script src="js/routes.js"></script>
+  <script>
+    Gasto.getGastosPessoais(
+        new Date().getMonth(),
+        Data.getAnoAtual(),
+        function(resp , media)
+        {
+          console.log(resp);
 
-	  	Gasto.getGastosPessoais(
-	  		new Date().getMonth(), 
-	  		Data.getAnoAtual(), 
-	  		function(resp)
-	  		{
-	  			console.log(resp);
-	  		}, 
-	  		function()
-	  		{
+          let vereador = resp[(resp.length/2)].vereador;
+          let gastoTotal = resp[(resp.length/2)].gasto_total;
 
-	  		}
-	  	);
+          $('.card-dinamicos').append(
+            `<div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image card-menor">
+                  <div class="preto-fosco"></div>
+                  <img src="">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red" href="comentarioUsuario.html"><i class="material-icons">comment</i></a>
+                  <a href="comentarioUsuario.html" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+                </div>
+                <div class="card-content menor-gasto">
+                  <span class="card-title">${vereador}</span>
+                  <p>Parabenizamos o vereador(a) por ter o gasto consciente com o nosto dinheiro.</p>
+                  <div class="divider"></div>
+                  <div class="apenas-alinha menor">
+                    <p>R$ ${Number.parseFloat(gastoTotal).toFixed(2)}</p>
+                    <p>${Data.parseMes(new Date().getMonth())}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`
+          );
 
-	  	
-	  	// require('js/Vue.js');
+          $('.card-dinamicos').append(
+            `<div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image card-maior">
+                  <div class="preto-fosco"></div>
+                  <img src="">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red" href="comentarioUsuario.html"><i class="material-icons">comment</i></a>
+                </div>
+                <div class="card-content maior-gasto">
+                  <span class="card-title">${resp[resp.length-1].vereador}</span>
+                  <p>Esperamos que o vereador(a) faça uso do nosso dinheiro de forma mais consciente.</p>
+                  <div class="divider"></div>
+                  <div class="apenas-alinha maior">
+                    <p>R$ ${resp[resp.length-1].gasto_total }</p>
+                    <p>${Data.parseMes(new Date().getMonth())}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`
+          );
 
-	  	// new Vue({
-	  	// 	el : '#dados',
-	  	// 	data : { vereadores : [] },
-	  	// 	mounted : function(){
-
-	  	// 		this.vereadores = [{"VEREADOR" : 'NHAN'},{"VEREADOR" : 'NHAN'}];
-	  	// 	}
-
-	  	// });
-	  </script>
-	</body>
-</hmtl>
+        });
+  </script>
+  </body>
+</html>

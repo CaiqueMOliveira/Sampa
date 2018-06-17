@@ -17,13 +17,22 @@ class GastoDAO
 			success:function(resp)
 			{
 
+				let total = 0;
+
 				resp = ordenarPorNome( resp );
 
 				let listVereadorGasto = somarGastosPorVereador( resp );
 
 				var result = ordenarPorGastos( listVereadorGasto );
 
-				callbacksuccess( result );
+				for( var i = 0 ; i < result.length ; i++ )
+				{
+					total += parseFloat(result[i].gasto_total);
+				}
+
+				let media = total / result.length;
+		
+				callbacksuccess( result , media );
 			},
 			error:function(a,error,c)
 			{
@@ -68,7 +77,7 @@ class GastoDAO
 						result.push( resp[i] );
 					}
 				}
-				
+
 
 				totalMedia = totalMedia / cont ; //Calcula a média
 				
