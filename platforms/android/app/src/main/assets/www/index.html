@@ -9,6 +9,7 @@
 		<meta charset="utf-8">
 		<script src="cordova.js"></script>
 	  	<script src="js/jquery.min.js"></script>
+	  	<script src="js/vue.js"></script>
 		<title>Home</title>
 	</head>
 	<body>
@@ -21,9 +22,50 @@
 		</nav>
 
 		<div class="nav_menu"></div>
-	  
+
+		<div class="row ubuntu">
+			<div class="col s12 titulo-pagina">
+				<h1>Gastos dos Vereadores</h1>
+			</div>
+		</div>
+
+
+		<!-- <div id="dados">
+			<h1 v-for="(vereador, index) in vereadores">
+				{{vereador.VEREADOR}}
+			</h1>
+		</div> -->
+
+			  
 	  <script src="js/component.js"></script>
 	  <script src="js/materialize.js"></script>
+	  <script src="js/routes.js"></script>
+	  <script src="js/controller/Gasto.js"></script>
+	  <script src="js/model/GastoDAO.js"></script>
+	  <script>
 
+	  	Gasto.getGastosPessoais(
+	  		function(resp)
+	  		{
+	  			console.log(resp);
+	  		},
+	  		function(error)
+	  		{
+	  		}
+	  	);
+
+	  	
+	  	// require('js/Vue.js');
+
+	  	// new Vue({
+	  	// 	el : '#dados',
+	  	// 	data : { vereadores : [] },
+	  	// 	mounted : function(){
+
+	  	// 		this.vereadores = [{"VEREADOR" : 'NHAN'},{"VEREADOR" : 'NHAN'}];
+	  	// 	}
+
+	  	// });
+	  </script>
 	</body>
 </hmtl>

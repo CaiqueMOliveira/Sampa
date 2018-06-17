@@ -12,9 +12,9 @@ class Gasto
 	/**
 	 * Obtem os gastos publicos por agrupados pelo vereador e por tipo de despesa
 	 */
-	static getGastosEspecificosPessoais(chave,callbacksuccess, callbackfail)
+	static getGastosEspecificosPessoais(mes, ano, chave, callbacksuccess, callbackfail)
 	{
-		new GastoDAO().getGastosEspecificosPessoais(chave,callbacksuccess, callbackfail); 
+		new GastoDAO().getGastosEspecificosPessoais(mes, ano, chave, callbacksuccess, callbackfail); 
 	}
 
 	/**
