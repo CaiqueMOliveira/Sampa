@@ -57,26 +57,14 @@
 	  	// Cria uma instancia do banco de dados
 	  	// new Database();
 	  	// 
-	  	var media = 0;
-
-	  	Gasto.getGastosTotais(
-	  		new Date().getMonth(),
-	  		Data.getAnoAtual(),
-	  		function(resp)
-	  		{
-	  			console.log(resp.media);
-	  			media = resp.media;
-	  		},
-	  		function()
-	  		{}
-	  	);
 
 	  	Gasto.getGastosPessoais(
 			new Date().getMonth(),
 			Data.getAnoAtual(),
-			function(resp)
+			function(resp ,media)
 			{
 				console.log(resp);
+				console.log(media);
 
 				for(var i = 0; i < resp.length; i++)
 				{

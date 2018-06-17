@@ -27,12 +27,11 @@ class GastoDAO
 
 				for( var i = 0 ; i < result.length ; i++ )
 				{
-					total += result[i].gasto_total;
+					total += parseFloat(result[i].gasto_total);
 				}
-				
-				console.log( result.length );
-				let media = total / result.length;
 
+				let media = total / result.length;
+		
 				callbacksuccess( result , media );
 			},
 			error:function(a,error,c)
