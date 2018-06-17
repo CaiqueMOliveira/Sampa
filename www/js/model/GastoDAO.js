@@ -29,7 +29,7 @@ class GastoDAO
 				{
 					total += result[i].gasto_total;
 				}
-
+				
 				console.log( result.length );
 				let media = total / result.length;
 
