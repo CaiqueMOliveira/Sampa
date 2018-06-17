@@ -52,7 +52,9 @@ class GastoDAO
 			{
 
 				var listVereadorGasto = []; //Lista final
-				var palavra = chave;
+				var palavra = chave; //Seta a chave para a busca
+				var cont = 0;
+				var totalMedia = 0;
 
 				var result = [];
 
@@ -61,15 +63,19 @@ class GastoDAO
 				{					
 					if( resp[i].DESPESA ==  palavra )
 					{
+						cont += 1;
+						totalMedia += resp[i].VALOR ;
 						result.push( resp[i] );
 					}
 				}
 
+				totalMedia = totalMedia / cont ; //Calcula a média
+				
 				result = somarGastosPorVereador( result );
 
 				result = ordenarPorGastos( result );
 				
-				callbacksuccess( result );
+				callbacksuccess( result , totalMedia );
 			},
 			error:function(a,error,c)
 			{
@@ -221,7 +227,6 @@ function somarGastosPorVereador( resp )
 		}
 					
 	}
-
 	return listVereadorGasto;	
 }
 
