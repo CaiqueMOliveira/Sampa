@@ -17,14 +17,16 @@
 		    <div>
 		    	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 			</div>
-		    <div>Gastos Mensais</div>
+		    <div>Sou Cidadão</div>
 		</nav>
 
     <div class="jean-gray"></div>
 
 		<div class="nav_menu"></div>
 
-     <div class="row">
+    <div class="card-dinamicos"></div>
+
+     <!-- <div class="row">
         <div class="col s12 m6">
           <div class="card">
             <div class="card-image card-menor">
@@ -40,9 +42,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col s12 m6">
           <div class="card">
             <div class="card-image card-maior">
@@ -58,9 +60,72 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
   <script src="js/component.js"></script>
   <script src="js/materialize.js"></script>
+  <script src="js/controller/Gasto.js"></script>
+  <script src="js/model/GastoDAO.js"></script>
+  <script src="js/controller/Data.js"></script>
+  <script src="js/routes.js"></script>
+  <script>
+    Gasto.getGastosPessoais(
+        new Date().getMonth(),
+        Data.getAnoAtual(),
+        function(resp , media)
+        {
+          console.log(resp);
+
+          let vereador = resp[(resp.length/2)].vereador;
+          let gastoTotal = resp[(resp.length/2)].gasto_total;
+
+          $('.card-dinamicos').append(
+            `<div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image card-menor">
+                  <div class="preto-fosco"></div>
+                  <img src="">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+                </div>
+                <div class="card-content menor-gasto">
+                  <span class="card-title">${vereador}</span>
+                  <p>Parabenizamos o vereador(a) por ter o gasto consciente com o nosto dinheiro.</p>
+                  <div class="divider"></div>
+                  <div class="apenas-alinha menor">
+                    <p>R$ ${Number.parseFloat(gastoTotal).toFixed(2)}</p>
+                    <p>${Data.parseMes(new Date().getMonth())}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`
+          );
+
+          $('.card-dinamicos').append(
+            `<div class="row">
+            <div class="col s12 m6">
+              <div class="card">
+                <div class="card-image card-maior">
+                  <div class="preto-fosco"></div>
+                  <img src="">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">comment</i></a>
+                </div>
+                <div class="card-content maior-gasto">
+                  <span class="card-title">${resp[resp.length-1].vereador}</span>
+                  <p>Esperamos que o vereador(a) faça uso do nosso dinheiro de forma mais consciente.</p>
+                  <div class="divider"></div>
+                  <div class="apenas-alinha maior">
+                    <p>R$ ${resp[resp.length-1].gasto_total }</p>
+                    <p>${Data.parseMes(new Date().getMonth())}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`
+          );
+
+        });
+  </script>
   </body>
 </html>

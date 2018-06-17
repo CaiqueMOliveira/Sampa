@@ -29,11 +29,30 @@
 	background-color: rgba(0,0,0,.2);
 }
 
+.apenas-alinha
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.apenas-alinha.maior{
+	color: #D50000 !important;
+}
+.apenas-alinha.menor{
+	color: #00C853 !important;
+}
+
 .divider
 {
 	margin: 4% 0;
 }
 
+.card-content.menor-gasto > span
+{
+	text-shadow: none;
+	font-weight: 600;
+	color: #00C853 !important;
+}
 .card-content.maior-gasto > span
 {
 	text-shadow: none;
