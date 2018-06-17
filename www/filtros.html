@@ -61,19 +61,22 @@
 	  	// Inicializa o select do Materialize
 		$('select').material_select();
 
-		Gasto.getGastosEspecificosPessoais(
-			new Date().getMonth(),
-			Data.getAnoAtual(),
-			'TELEFONE FIXO',
-			function(resp)
-			{
-				console.log(resp);
-			}, 
-			function()
-			{
+		$('select[name="cbxCategoriaGasto"]').change(function(){
+			Gasto.getGastosEspecificosPessoais(
+				new Date().getMonth(),
+				Data.getAnoAtual(),
+				$('select[name="cbxCategoriaGasto"]').find(":selected").val(),
+				function(resp)
+				{
+					console.log(resp);
+				}, 
+				function()
+				{
 
-			}
-		);
+				}
+			);
+		});
+
 	  </script>
 	</body>
 </hmtl>
