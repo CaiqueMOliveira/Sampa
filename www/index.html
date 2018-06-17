@@ -9,6 +9,7 @@
 		<meta charset="utf-8">
 		<script src="cordova.js"></script>
 	  	<script src="js/jquery.min.js"></script>
+	  	<script src="js/vue.js"></script>
 		<title>Home</title>
 	</head>
 	<body>
@@ -21,9 +22,30 @@
 		</nav>
 
 		<div class="nav_menu"></div>
-	  
+		<!-- <div id="dados">
+			<h1 v-for="(vereador, index) in vereadores">
+				{{vereador.VEREADOR}}
+			</h1>
+		</div> -->
+
+			  
 	  <script src="js/component.js"></script>
 	  <script src="js/materialize.js"></script>
+	  <script>
 
+	  	
+	  	
+	  	// require('js/Vue.js');
+
+	  	// new Vue({
+	  	// 	el : '#dados',
+	  	// 	data : { vereadores : [] },
+	  	// 	mounted : function(){
+
+	  	// 		this.vereadores = [{"VEREADOR" : 'NHAN'},{"VEREADOR" : 'NHAN'}];
+	  	// 	}
+
+	  	// });
+	  </script>
 	</body>
 </hmtl>
