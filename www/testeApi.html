@@ -12,10 +12,11 @@
 	<script src="js/model/GastoDAO.js"></script>
 
 	<script>
-		Gasto.getGastosPessoais(
+		Gasto.getGastosTotais(
+			"1", "2018",
 			(resp)=>
 			{
-
+				console.log( resp );
 			}, 
 			(error)=>
 			{
