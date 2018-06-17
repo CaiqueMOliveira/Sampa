@@ -6,7 +6,7 @@ class Gasto
 	 */
 	static getGastosPessoais(mes, ano, callbacksuccess, callbackfail)
 	{
-		new GastoDAO().getGastosPessoais(callbacksuccess, callbackfail); 
+		new GastoDAO().getGastosPessoais(mes, ano, callbacksuccess, callbackfail); 
 	}
 
 	/**
