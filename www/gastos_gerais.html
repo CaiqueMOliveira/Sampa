@@ -20,14 +20,22 @@
 		    <div>
 		    	<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 			</div>
-		    <div>Sou Cidadão</div>
+		    <div>Gastos dos Vereadores</div>
 		</nav>
 
 		<div class="nav_menu"></div>
 
-		<div class="row ubuntu">
+		<!-- <div class="row ubuntu">
 			<div class="col s12 titulo-pagina">
 				<h1>Gastos dos Vereadores</h1>
+			</div>
+		</div> -->
+
+		<div class="row">
+			<div class="col s12">
+				<div class="dados-dinamicos">
+					
+				</div>
 			</div>
 		</div>
 
@@ -48,19 +56,56 @@
 
 	  	// Cria uma instancia do banco de dados
 	  	// new Database();
+	  	// 
+	  	var media = 0;
 
-	  	Gasto.getGastosPessoais(
-	  		new Date().getMonth(), 
-	  		Data.getAnoAtual(), 
+	  	Gasto.getGastosTotais(
+	  		new Date().getMonth(),
+	  		Data.getAnoAtual(),
 	  		function(resp)
 	  		{
-	  			console.log(resp);
-	  		}, 
+	  			console.log(resp.media);
+	  			media = resp.media;
+	  		},
 	  		function()
-	  		{
-
-	  		}
+	  		{}
 	  	);
+
+	  	Gasto.getGastosPessoais(
+			new Date().getMonth(),
+			Data.getAnoAtual(),
+			function(resp)
+			{
+				console.log(resp);
+
+				for(var i = 0; i < resp.length; i++)
+				{
+					let vereador = resp[i].vereador;
+					let gastoTotal = resp[i].gasto_total;
+					let maiorMenor = gastoTotal > media ? "maior" : "menor";
+
+					$('.dados-dinamicos').append(
+						`<div class="row">
+					      <div class="col s12 m5">
+					        <div class="card-panel">
+					          <span class="white-text">
+					          	<div class="dados-principais ${maiorMenor}-gasto">
+						          	<p>${i+1}º ${vereador}</p>
+						          	<div></div>
+						          	<p>R$ ${Number.parseFloat(gastoTotal).toFixed(2)}</p>
+					          	</div>
+					          </span>
+					        </div>
+					      </div>
+					    </div>`
+					);
+				}
+			}, 
+			function()
+			{
+
+			}
+		);	  	
 
 	  	
 	  	// require('js/Vue.js');
