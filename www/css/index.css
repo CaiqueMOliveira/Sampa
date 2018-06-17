@@ -1,11 +1,53 @@
-.card-image{
+.card-image
+{
   width: 100%;
   height: 150px;
-  background-image: linear-gradient(to right, #00C853 0%, #fff 100%);
+  /*background-image: linear-gradient(to right, #00C853 80%, #fff 100%);*/
+}
+.card-menor
+{
+	background-image: url("../imagens/star-award.png");
+	background-attachment: contain;
+	background-size: cover;
+}
+.card-maior
+{
+	background-image: url("../imagens/money.jfif");
+	background-attachment: contain;
+	background-size: cover;
 }
 .card-title{
   color: #000 !important;
+  text-shadow: 0 0 1px #000;
 }
-.material-icons{
-  font-size: 2rem !important;
+
+.preto-fosco
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.2);
+}
+
+.divider
+{
+	margin: 4% 0;
+}
+
+.card-content.maior-gasto > span
+{
+	text-shadow: none;
+	font-weight: 600;
+	color: #D50000 !important;
+}
+.card-content.menor-gasto > p:last-child
+{
+	color: #00C853;
+	text-shadow: 0 0 1px rgba(0,0,0,.2);
+}
+
+.card-content.maior-gasto > p:last-child
+{
+	color: #D50000;
+	text-shadow: 0 0 1px rgba(0,0,0,.2);
 }
