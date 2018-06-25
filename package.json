@@ -1,24 +1,37 @@
 {
-    "name": "helloworld",
-    "displayName": "HelloCordova",
-    "version": "1.0.0",
-    "description": "A sample Apache Cordova application that responds to the deviceready event.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "helloworld",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
     },
-    "author": "Apache Cordova Team",
-    "license": "Apache-2.0",
-    "dependencies": {
-        "cordova-android": "^7.0.0",
-        "cordova-plugin-whitelist": "^1.3.3"
-    },
-    "cordova": {
-        "plugins": {
-            "cordova-plugin-whitelist": {}
-        },
-        "platforms": [
-            "android"
-        ]
-    }
+    "platforms": [
+      "android"
+    ]
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaiqueMOliveira/Sampa.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/CaiqueMOliveira/Sampa/issues"
+  },
+  "homepage": "https://github.com/CaiqueMOliveira/Sampa#readme"
 }
